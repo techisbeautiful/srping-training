@@ -24,11 +24,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book addBook(Book book) {
-        final Optional<Book> existingBook = bookRepository.findById(book.getIsbn());
-        if (existingBook.isPresent()) {
-            throw new RuntimeException("Error");
-        }
-
         final Book savedBook = bookRepository.save(book);
         return savedBook;
     }

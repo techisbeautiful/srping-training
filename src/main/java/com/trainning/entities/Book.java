@@ -1,9 +1,6 @@
 package com.trainning.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
@@ -11,9 +8,20 @@ public class Book {
 
     @Id
     @Column(length = 20)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
+
     private String isbn;
     private String name;
     private String author;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getIsbn() {
         return isbn;
